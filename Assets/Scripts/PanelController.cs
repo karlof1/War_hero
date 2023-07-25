@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class PanelController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public List<Panel> panelList;
     void Start()
     {
-        
+        ShowPanel(panelList[0]);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ShowPanel(Panel panel)
     {
-        
+        foreach (var item in panelList)
+        {
+            item.gameObject.SetActive(item == panel);
+        }
     }
 }
