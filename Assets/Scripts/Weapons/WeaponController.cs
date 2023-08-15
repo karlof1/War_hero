@@ -15,6 +15,11 @@ public class WeaponController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             sniper.gameObject.SetActive(!sniper.gameObject.activeInHierarchy);
+            
+            if (currentWeapon != null)
+            {
+                currentWeapon.gameObject.SetActive(false);
+            }
 
             if (sniper.gameObject.activeInHierarchy)
             {
@@ -29,6 +34,11 @@ public class WeaponController : MonoBehaviour
         {
             pistol.gameObject.SetActive(!pistol.gameObject.activeInHierarchy);
 
+            if (currentWeapon != null)
+            {
+                currentWeapon.gameObject.SetActive(false);
+            }
+
             if (pistol.gameObject.activeInHierarchy)
             {
                 currentWeapon = pistol;
@@ -41,6 +51,11 @@ public class WeaponController : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             dagger.gameObject.SetActive(!dagger.gameObject.activeInHierarchy);
+
+            if (currentWeapon != null)
+            {
+                currentWeapon.gameObject.SetActive(false);
+            }
 
             if (dagger.gameObject.activeInHierarchy)
             {
