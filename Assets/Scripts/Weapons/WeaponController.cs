@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponController : MonoBehaviour
 {
@@ -10,12 +11,16 @@ public class WeaponController : MonoBehaviour
 
     private Weapon currentWeapon;
 
+    [Header("Center Aim")]
+    [SerializeField] private Image centerAim;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             sniper.gameObject.SetActive(!sniper.gameObject.activeInHierarchy);
-            
+            centerAim.gameObject.SetActive(false);
+
             if (currentWeapon != null)
             {
                 currentWeapon.gameObject.SetActive(false);
@@ -42,10 +47,12 @@ public class WeaponController : MonoBehaviour
             if (pistol.gameObject.activeInHierarchy)
             {
                 currentWeapon = pistol;
+                centerAim.gameObject.SetActive(true);
             }
             else
             {
                 currentWeapon = null;
+                centerAim.gameObject.SetActive(false);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -60,10 +67,12 @@ public class WeaponController : MonoBehaviour
             if (dagger.gameObject.activeInHierarchy)
             {
                 currentWeapon = dagger;
+                centerAim.gameObject.SetActive(true);
             }
             else
             {
                 currentWeapon = null;
+                centerAim.gameObject.SetActive(false);
             }
         }
 
