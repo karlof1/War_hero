@@ -13,6 +13,7 @@ public class WeaponController : MonoBehaviour
 
     [Header("Center Aim")]
     [SerializeField] private Image centerAim;
+    [SerializeField] private Image sniperAim;
 
     void Update()
     {
@@ -42,6 +43,7 @@ public class WeaponController : MonoBehaviour
             if (currentWeapon != null)
             {
                 currentWeapon.gameObject.SetActive(false);
+                sniperAim.gameObject.SetActive(false);
             }
 
             if (pistol.gameObject.activeInHierarchy)
@@ -62,6 +64,7 @@ public class WeaponController : MonoBehaviour
             if (currentWeapon != null)
             {
                 currentWeapon.gameObject.SetActive(false);
+                sniperAim.gameObject.SetActive(false);
             }
 
             if (dagger.gameObject.activeInHierarchy)
@@ -79,6 +82,11 @@ public class WeaponController : MonoBehaviour
         if (currentWeapon != null && Input.GetKeyDown(KeyCode.Mouse0))
         {
             currentWeapon.Use();
+        }
+
+        if (currentWeapon == sniper && Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            sniperAim.gameObject.SetActive(!sniperAim.gameObject.activeInHierarchy);
         }
     }
 }

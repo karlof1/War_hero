@@ -5967,6 +5967,7 @@ MonoBehaviour:
   pistol: {fileID: 145655974}
   dagger: {fileID: 1764804801}
   centerAim: {fileID: 1676410342}
+  sniperAim: {fileID: 1708674052}
 --- !u!1 &831055856
 GameObject:
   m_ObjectHideFlags: 0
@@ -6933,7 +6934,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1708674051
 RectTransform:
   m_ObjectHideFlags: 0
