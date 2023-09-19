@@ -214,6 +214,7 @@ MonoBehaviour:
   idleRotation: {x: 0, y: -90, z: 0}
   attackPosition: {x: 0.38, y: -0.22, z: 0.25}
   attackRotation: {x: 0, y: -90, z: 10}
+  usingSound: {fileID: 8300000, guid: 1a10e718e48d98f4daa59483b4333ad2, type: 3}
   range: 0
   capacity: 0
 --- !u!1 &155848376
@@ -481,8 +482,11 @@ MonoBehaviour:
   idleRotation: {x: 0, y: -90, z: 0}
   attackPosition: {x: -0.031, y: -0.158, z: 0.805}
   attackRotation: {x: 0, y: -90, z: 0}
+  usingSound: {fileID: 8300000, guid: c879a2b3c3e8d9e45b99a8c3d848cc3d, type: 3}
   range: 0
   capacity: 0
+  isAiming: 0
+  sniperAim: {fileID: 1708674052}
 --- !u!1 &404981652
 GameObject:
   m_ObjectHideFlags: 0
@@ -5967,7 +5971,6 @@ MonoBehaviour:
   pistol: {fileID: 145655974}
   dagger: {fileID: 1764804801}
   centerAim: {fileID: 1676410342}
-  sniperAim: {fileID: 1708674052}
 --- !u!1 &831055856
 GameObject:
   m_ObjectHideFlags: 0
@@ -7265,8 +7268,9 @@ MonoBehaviour:
   attackDamage: 0
   idlePosition: {x: 0.335, y: -0.563, z: 0.294}
   idleRotation: {x: -30, y: 0, z: 90}
-  attackPosition: {x: 0, y: -0.52, z: 0.65}
-  attackRotation: {x: -45, y: 30, z: 90}
+  attackPosition: {x: -0.2, y: -0.52, z: 0.65}
+  attackRotation: {x: -50, y: 30, z: 45}
+  usingSound: {fileID: 8300000, guid: bfa4bf678199845448850ae82641afc6, type: 3}
 --- !u!1 &1858988792
 GameObject:
   m_ObjectHideFlags: 0

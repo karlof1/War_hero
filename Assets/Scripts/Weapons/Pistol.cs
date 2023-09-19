@@ -12,6 +12,8 @@ public class Pistol : RangeWeapon
 
     public override void Use()
     {
+        base.Use();
+
         transform.localPosition = idlePosition;
         transform.localEulerAngles = idleRotation;
 

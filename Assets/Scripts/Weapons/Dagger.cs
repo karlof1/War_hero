@@ -7,6 +7,8 @@ public class Dagger : MeleeWeapon
 {
     public override void Use()
     {
+        base.Use();
+
         transform.localPosition = idlePosition;
         transform.localEulerAngles = idleRotation;
 

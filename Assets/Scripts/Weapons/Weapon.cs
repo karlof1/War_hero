@@ -12,5 +12,11 @@ public abstract class Weapon : MonoBehaviour
     public Vector3 attackPosition;
     public Vector3 attackRotation;
 
-    public abstract void Use();
+    [Header("Audio effects")]
+    public AudioClip usingSound;
+
+    public virtual void Use()
+    {
+        AudioSource.PlayClipAtPoint(usingSound, transform.position);
+    }
 }
