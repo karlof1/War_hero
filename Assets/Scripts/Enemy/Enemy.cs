@@ -13,14 +13,22 @@ public class Enemy : MonoBehaviour
     private Transform currentPatrolPoint;
     [SerializeField] private List<Transform> patrolPoints;
 
+    private Animator animator;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<WeaponController>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
+        if(enemyBehaviour == EnemyBehaviour.Died)
+        {
+            return;
+        }
+
         if(Vector3.Distance(player.transform.position, transform.position) < distanceToFollow)
         {
             enemyBehaviour = EnemyBehaviour.Following;
@@ -45,16 +53,29 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            Die();
+        }
     }
 
     private Transform GetPatrolPoint()
     {
         return patrolPoints[Random.Range(0, patrolPoints.Count)];
     }
+
+    private void Die()
+    {
+        enemyBehaviour = EnemyBehaviour.Died;
+        agent.enabled = false;
+        animator.SetTrigger("Death");
+    }
 }
 
 public enum EnemyBehaviour
 {
     Following,
-    Patroling
+    Patroling,
+    Died
 }
