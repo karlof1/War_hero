@@ -11,8 +11,8 @@ public class Enemy : MonoBehaviour
 
     [SerializeField] private EnemyBehaviour enemyBehaviour;
     private Transform currentPatrolPoint;
-    [SerializeField] private List<Transform> patrolPoints;
 
+    private EnemyController enemyController;
     private Animator animator;
 
     private void Start()
@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<WeaponController>();
         animator = GetComponent<Animator>();
+        enemyController = FindObjectOfType<EnemyController>();
     }
 
     private void Update()
@@ -62,7 +63,7 @@ public class Enemy : MonoBehaviour
 
     private Transform GetPatrolPoint()
     {
-        return patrolPoints[Random.Range(0, patrolPoints.Count)];
+        return enemyController.worldPoints[Random.Range(0, enemyController.worldPoints.Count)];
     }
 
     private void Die()
