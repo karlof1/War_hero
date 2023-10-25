@@ -15,12 +15,15 @@ public class Enemy : MonoBehaviour
     private EnemyController enemyController;
     private Animator animator;
 
+    private EnemyHealthBar healthBar;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<WeaponController>();
         animator = GetComponent<Animator>();
         enemyController = FindObjectOfType<EnemyController>();
+        healthBar = GetComponent<EnemyHealthBar>();
     }
 
     private void Update()
