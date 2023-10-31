@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     private EnemyController enemyController;
     private Animator animator;
 
-    private EnemyHealthBar healthBar;
+    [HideInInspector] public EnemyHealthBar healthBar;
 
     private void Start()
     {
