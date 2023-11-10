@@ -8,6 +8,7 @@ public class EnemyHealthBar : HealthBar
     {
         base.Death();
 
+        GetComponent<Enemy>().Die();
         //wywo³anie œmierci Enemy
     }
 }

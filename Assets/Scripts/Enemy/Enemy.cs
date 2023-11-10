@@ -8,6 +8,9 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent agent;
     private WeaponController player;
     [SerializeField] private float distanceToFollow;
+    [SerializeField] private float distanceToAttack;
+    [SerializeField] private float attackSpeed;
+    private float attackTimer = 0f;
 
     [SerializeField] private EnemyBehaviour enemyBehaviour;
     private Transform currentPatrolPoint;
@@ -38,6 +41,28 @@ public class Enemy : MonoBehaviour
             enemyBehaviour = EnemyBehaviour.Following;
             agent.SetDestination(player.transform.position);
             currentPatrolPoint = null;
+
+            if (Vector3.Distance(player.transform.position, transform.position) < distanceToAttack)
+            {
+                animator.SetBool("Shoot", true);
+
+                attackTimer -= Time.deltaTime;
+
+                if(attackTimer < 0f)
+                {
+                    attackTimer = attackSpeed;
+                    // dŸwiêk strza³u
+
+                    if(Random.Range(0,2) == 0)
+                    {
+                        player.GetComponent<PlayerHealthBar>().SubtractHealth(20);
+                    }
+                }
+            }
+            else
+            {
+                animator.SetBool("Shoot", false);
+            }
         }
         else
         {
@@ -57,11 +82,6 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
-
-        if(Input.GetKeyDown(KeyCode.Return))
-        {
-            Die();
-        }
     }
 
     private Transform GetPatrolPoint()
@@ -69,7 +89,7 @@ public class Enemy : MonoBehaviour
         return enemyController.worldPoints[Random.Range(0, enemyController.worldPoints.Count)];
     }
 
-    private void Die()
+    public void Die()
     {
         enemyBehaviour = EnemyBehaviour.Died;
         agent.enabled = false;

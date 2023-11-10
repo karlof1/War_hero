@@ -35,18 +35,16 @@ public class Sniper : RangeWeapon
         Ray ray = Camera.main.ScreenPointToRay(centerScreenPoint);
 
         RaycastHit hitInfo;
-
-        Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red, 5f);
+        
+        // Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red, 5f);
 
         if(Physics.Raycast(ray, out hitInfo, 100f))
         {
             Enemy enemy = hitInfo.collider.GetComponent<Enemy>();
-            Debug.Log("wystrzelono promieñ");
 
             if(enemy != null)
             {
                 enemy.healthBar.SubtractHealth(60);
-                Debug.Log("zadano obra¿enia");
             }
         }
     }
