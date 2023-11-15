@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealthBar : HealthBar
 {
@@ -8,6 +9,11 @@ public class PlayerHealthBar : HealthBar
     {
         base.Death();
 
-        //wywo³anie œmierci gracza
+        LoadGameOverScene();
+    }
+
+    public void LoadGameOverScene()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }
