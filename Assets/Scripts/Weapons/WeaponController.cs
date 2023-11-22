@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WeaponController : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private Dagger dagger;
 
     private Weapon currentWeapon;
+
+    public static int ammoCapacity = 250;
+    [SerializeField] private TMP_Text ammoValue;
 
     [Header("Center Aim")]
     [SerializeField] private Image centerAim;
@@ -88,7 +92,18 @@ public class WeaponController : MonoBehaviour
 
         if (currentWeapon != null && Input.GetKeyDown(KeyCode.Mouse0))
         {
-            currentWeapon.Use();
+            if(currentWeapon is RangeWeapon)
+            {
+                if(ammoCapacity > 0)
+                {
+                    currentWeapon.Use();
+                    SubtractAmmo(1);
+                }
+            }
+            else
+            {
+                currentWeapon.Use();
+            }
         }
 
         if (currentWeapon == sniper && Input.GetKeyDown(KeyCode.Mouse1))
@@ -102,5 +117,23 @@ public class WeaponController : MonoBehaviour
                 sniper.Aim();
             }
         }
+    }
+
+    public void AddAmmo(int amount)
+    {
+        ammoCapacity += amount;
+        ammoValue.text = ammoCapacity.ToString();
+    }
+
+    public void SubtractAmmo(int amount)
+    {
+        ammoCapacity -= amount;
+
+        if(ammoCapacity < 0)
+        {
+            ammoCapacity = 0;
+        }
+
+        ammoValue.text = ammoCapacity.ToString();
     }
 }
