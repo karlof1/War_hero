@@ -12,11 +12,16 @@ public class WeaponController : MonoBehaviour
 
     private Weapon currentWeapon;
 
-    public static int ammoCapacity = 250;
+    public static int ammoCapacity;
     [SerializeField] private TMP_Text ammoValue;
 
     [Header("Center Aim")]
     [SerializeField] private Image centerAim;
+
+    private void Start()
+    {
+        SetAmmo(250);
+    }
 
     void Update()
     {
@@ -134,6 +139,12 @@ public class WeaponController : MonoBehaviour
             ammoCapacity = 0;
         }
 
+        ammoValue.text = ammoCapacity.ToString();
+    }
+
+    public void SetAmmo(int amount)
+    {
+        ammoCapacity = amount;
         ammoValue.text = ammoCapacity.ToString();
     }
 }
