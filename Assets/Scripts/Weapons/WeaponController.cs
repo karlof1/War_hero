@@ -9,8 +9,23 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private Sniper sniper;
     [SerializeField] private Pistol pistol;
     [SerializeField] private Dagger dagger;
+    [SerializeField] private FragGrenade fragGrenade;
+    [SerializeField] private FlashGrenade flashGrenade;
+    [SerializeField] private SmokeGrenade smokeGrenade;
+    [SerializeField] private Molotov molotov;
 
     private Weapon currentWeapon;
+
+    public static bool fragGrenadeAvailable;
+    [SerializeField] private Image fragGrenadeIcon;
+    public static bool flashGrenadeAvailable;
+    [SerializeField] private Image flashGrenadeIcon;
+    public static bool smokeGrenadeAvailable;
+    [SerializeField] private Image smokeGrenadeIcon;
+    public static bool molotovAvailable;
+    [SerializeField] private Image molotovIcon;
+
+    private int grenadeSlotIndex = 0;
 
     public static int ammoCapacity;
     [SerializeField] private TMP_Text ammoValue;
@@ -93,6 +108,74 @@ public class WeaponController : MonoBehaviour
                 currentWeapon = null;
                 centerAim.gameObject.SetActive(false);
             }
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            if(fragGrenadeAvailable)
+            {
+                if (currentWeapon != null)
+                {
+                    currentWeapon.gameObject.SetActive(false);
+
+                    if (currentWeapon == sniper)
+                    {
+                        sniper.CancelAim();
+                    }
+                }
+
+                currentWeapon = fragGrenade;
+                currentWeapon.gameObject.SetActive(true);
+                centerAim.gameObject.SetActive(true);
+            }
+            else if (flashGrenadeAvailable)
+            {
+                if (currentWeapon != null)
+                {
+                    currentWeapon.gameObject.SetActive(false);
+
+                    if (currentWeapon == sniper)
+                    {
+                        sniper.CancelAim();
+                    }
+                }
+
+                currentWeapon = flashGrenade;
+                currentWeapon.gameObject.SetActive(true);
+                centerAim.gameObject.SetActive(true);
+            }
+            else if (smokeGrenadeAvailable)
+            {
+                if (currentWeapon != null)
+                {
+                    currentWeapon.gameObject.SetActive(false);
+
+                    if (currentWeapon == sniper)
+                    {
+                        sniper.CancelAim();
+                    }
+                }
+
+                currentWeapon = smokeGrenade;
+                currentWeapon.gameObject.SetActive(true);
+                centerAim.gameObject.SetActive(true);
+            }
+            else if (molotovAvailable)
+            {
+                if (currentWeapon != null)
+                {
+                    currentWeapon.gameObject.SetActive(false);
+
+                    if (currentWeapon == sniper)
+                    {
+                        sniper.CancelAim();
+                    }
+                }
+
+                currentWeapon = molotov;
+                currentWeapon.gameObject.SetActive(true);
+                centerAim.gameObject.SetActive(true);
+            }
+
         }
 
         if (currentWeapon != null && Input.GetKeyDown(KeyCode.Mouse0))
