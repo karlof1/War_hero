@@ -16,13 +16,13 @@ public class WeaponController : MonoBehaviour
 
     private Weapon currentWeapon;
 
-    public static bool fragGrenadeAvailable;
+    public static bool fragGrenadeAvailable = true;
     [SerializeField] private Image fragGrenadeIcon;
-    public static bool flashGrenadeAvailable;
+    public static bool flashGrenadeAvailable = false;
     [SerializeField] private Image flashGrenadeIcon;
-    public static bool smokeGrenadeAvailable;
+    public static bool smokeGrenadeAvailable = false;
     [SerializeField] private Image smokeGrenadeIcon;
-    public static bool molotovAvailable;
+    public static bool molotovAvailable = true;
     [SerializeField] private Image molotovIcon;
 
     private int grenadeSlotIndex = 0;
@@ -36,6 +36,8 @@ public class WeaponController : MonoBehaviour
     private void Start()
     {
         SetAmmo(250);
+
+        SetGrenadesAvailability();
     }
 
     void Update()
@@ -111,7 +113,7 @@ public class WeaponController : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            if(fragGrenadeAvailable)
+            if(fragGrenadeAvailable && grenadeSlotIndex == 0)
             {
                 if (currentWeapon != null)
                 {
@@ -126,8 +128,9 @@ public class WeaponController : MonoBehaviour
                 currentWeapon = fragGrenade;
                 currentWeapon.gameObject.SetActive(true);
                 centerAim.gameObject.SetActive(true);
+                grenadeSlotIndex = 1;
             }
-            else if (flashGrenadeAvailable)
+            else if (flashGrenadeAvailable && grenadeSlotIndex <= 1)
             {
                 if (currentWeapon != null)
                 {
@@ -142,8 +145,9 @@ public class WeaponController : MonoBehaviour
                 currentWeapon = flashGrenade;
                 currentWeapon.gameObject.SetActive(true);
                 centerAim.gameObject.SetActive(true);
+                grenadeSlotIndex = 2;
             }
-            else if (smokeGrenadeAvailable)
+            else if (smokeGrenadeAvailable && grenadeSlotIndex <= 2)
             {
                 if (currentWeapon != null)
                 {
@@ -158,8 +162,9 @@ public class WeaponController : MonoBehaviour
                 currentWeapon = smokeGrenade;
                 currentWeapon.gameObject.SetActive(true);
                 centerAim.gameObject.SetActive(true);
+                grenadeSlotIndex = 3;
             }
-            else if (molotovAvailable)
+            else if (molotovAvailable && grenadeSlotIndex <= 3)
             {
                 if (currentWeapon != null)
                 {
@@ -174,6 +179,23 @@ public class WeaponController : MonoBehaviour
                 currentWeapon = molotov;
                 currentWeapon.gameObject.SetActive(true);
                 centerAim.gameObject.SetActive(true);
+                grenadeSlotIndex = 4;
+            }
+            else
+            {
+                if (currentWeapon != null)
+                {
+                    currentWeapon.gameObject.SetActive(false);
+
+                    if (currentWeapon == sniper)
+                    {
+                        sniper.CancelAim();
+                    }
+                }
+
+                currentWeapon = null;
+                centerAim.gameObject.SetActive(false);
+                grenadeSlotIndex = 0;
             }
 
         }
@@ -229,5 +251,13 @@ public class WeaponController : MonoBehaviour
     {
         ammoCapacity = amount;
         ammoValue.text = ammoCapacity.ToString();
+    }
+
+    private void SetGrenadesAvailability()
+    {
+        fragGrenadeIcon.color = fragGrenadeAvailable ? Color.white : new Color(1f, 1f, 1f, 0.2f);
+        flashGrenadeIcon.color = flashGrenadeAvailable ? Color.white : new Color(1f, 1f, 1f, 0.2f);
+        smokeGrenadeIcon.color = smokeGrenadeAvailable ? Color.white : new Color(1f, 1f, 1f, 0.2f);
+        molotovIcon.color = molotovAvailable ? Color.white : new Color(1f, 1f, 1f, 0.2f);
     }
 }

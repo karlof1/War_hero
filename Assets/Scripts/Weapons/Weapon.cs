@@ -17,6 +17,8 @@ public abstract class Weapon : MonoBehaviour
 
     public virtual void Use()
     {
+        if (usingSound == null) return;
+
         AudioSource.PlayClipAtPoint(usingSound, transform.position);
     }
 }
