@@ -3,13 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-public class SmokeGrenade : RangeWeapon
+public class SmokeGrenade : ThrowableWeapon
 {
-    public override void Reload()
-    {
-
-    }
-
     public override void Use()
     {
         base.Use();

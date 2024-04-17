@@ -18,9 +18,9 @@ public class WeaponController : MonoBehaviour
 
     public static bool fragGrenadeAvailable = true;
     [SerializeField] private Image fragGrenadeIcon;
-    public static bool flashGrenadeAvailable = false;
+    public static bool flashGrenadeAvailable = true;
     [SerializeField] private Image flashGrenadeIcon;
-    public static bool smokeGrenadeAvailable = false;
+    public static bool smokeGrenadeAvailable = true;
     [SerializeField] private Image smokeGrenadeIcon;
     public static bool molotovAvailable = true;
     [SerializeField] private Image molotovIcon;
@@ -209,6 +209,11 @@ public class WeaponController : MonoBehaviour
                     currentWeapon.Use();
                     SubtractAmmo(1);
                 }
+            }
+            else if(currentWeapon is ThrowableWeapon)
+            {
+                currentWeapon.Use();
+                SetGrenadesAvailability();
             }
             else
             {
