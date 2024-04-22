@@ -14,6 +14,8 @@ public class FlashGrenade : ThrowableWeapon
         Rigidbody rb = grenade.GetComponent<Rigidbody>();
         rb.AddForce(throwPoint.forward * throwForce, ForceMode.VelocityChange);
         rb.useGravity = true;
+
+        WeaponController.flashGrenadeAvailable = false;
         //obs³u¿yæ metodê explode po odczekaniu opóŸnienia w coroutine
     }
 }

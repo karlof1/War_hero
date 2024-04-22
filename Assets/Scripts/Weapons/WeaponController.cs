@@ -214,6 +214,7 @@ public class WeaponController : MonoBehaviour
             {
                 currentWeapon.Use();
                 SetGrenadesAvailability();
+                currentWeapon = null;
             }
             else
             {
