@@ -9095,6 +9095,8 @@ MonoBehaviour:
   grenadePrefab: {fileID: 3436584104772930362, guid: 585157e479336d84cb5444384f8bc029, type: 3}
   throwPoint: {fileID: 4553194103213151}
   throwForce: 20
+  explosionPrefab: {fileID: 3426729912509381254, guid: 445fb68a3d22f5943b9f3591956e8854, type: 3}
+  explosionOffset: {x: 0, y: 2, z: -1}
 --- !u!1 &56320014388918056
 GameObject:
   m_ObjectHideFlags: 0
@@ -9748,6 +9750,8 @@ MonoBehaviour:
   grenadePrefab: {fileID: 579079936400519978, guid: d6caa0d9d295046458c07601d6d3754b, type: 3}
   throwPoint: {fileID: 5985705709603316608}
   throwForce: 15
+  explosionPrefab: {fileID: 0}
+  explosionOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &7328748781622383842
 GameObject:
   m_ObjectHideFlags: 0
@@ -9806,6 +9810,8 @@ MonoBehaviour:
   grenadePrefab: {fileID: 4622202796632048853, guid: 23cd88a72af88564daf0ede2e6c00231, type: 3}
   throwPoint: {fileID: 6865404280567410973}
   throwForce: 15
+  explosionPrefab: {fileID: 0}
+  explosionOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &8223965387726937648
 Transform:
   m_ObjectHideFlags: 0
@@ -9861,6 +9867,8 @@ MonoBehaviour:
   grenadePrefab: {fileID: 6289541432211561080, guid: b0d821c4aeeceb8488739cd14f70b6a0, type: 3}
   throwPoint: {fileID: 5006512736874647165}
   throwForce: 10
+  explosionPrefab: {fileID: 7732735186620032961, guid: 6d2a3198c2d30a640828af0c1d06d45d, type: 3}
+  explosionOffset: {x: 0, y: 0, z: 0}
 --- !u!1001 &8315634707698866002
 PrefabInstance:
   m_ObjectHideFlags: 0

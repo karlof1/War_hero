@@ -9903,7 +9903,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 6
+      scalar: 15
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -14394,7 +14394,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: b13b0594548d2534abafe02b2e9afda9, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14471,7 +14470,7 @@ Transform:
   m_GameObject: {fileID: 3426729912509381254}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3426729912509408932}
@@ -14479,7 +14478,7 @@ Transform:
   - {fileID: 3426729912509408930}
   - {fileID: 3426729912509408940}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3426729912520658786
 MonoBehaviour:
