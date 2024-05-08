@@ -6,6 +6,9 @@ using DG.Tweening;
 public class Molotov : ThrowableWeapon
 {
     private GameObject grenade;
+    private GameObject explosionEffect;
+    public float explosionEffectTime;
+
     public override void Use()
     {
         base.Use();
@@ -25,6 +28,13 @@ public class Molotov : ThrowableWeapon
     {
         base.Explode();
 
-        GameObject explosionEffect = Instantiate(explosionPrefab, grenade.transform.position + explosionOffset, Quaternion.identity);
+        explosionEffect = Instantiate(explosionPrefab, grenade.transform.position + explosionOffset, Quaternion.identity);
+
+        Invoke("DestroyExplosionEffect", explosionEffectTime);
+    }
+
+    private void DestroyExplosionEffect()
+    {
+        Destroy(explosionEffect.gameObject);
     }
 }

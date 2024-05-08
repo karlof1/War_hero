@@ -9810,7 +9810,7 @@ MonoBehaviour:
   grenadePrefab: {fileID: 4622202796632048853, guid: 23cd88a72af88564daf0ede2e6c00231, type: 3}
   throwPoint: {fileID: 6865404280567410973}
   throwForce: 15
-  explosionPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 1735024089641582, guid: 2256e36e433b52a45943974155396ce7, type: 3}
   explosionOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &8223965387726937648
 Transform:
@@ -9869,6 +9869,7 @@ MonoBehaviour:
   throwForce: 10
   explosionPrefab: {fileID: 7732735186620032961, guid: 6d2a3198c2d30a640828af0c1d06d45d, type: 3}
   explosionOffset: {x: 0, y: 0, z: 0}
+  explosionEffectTime: 6
 --- !u!1001 &8315634707698866002
 PrefabInstance:
   m_ObjectHideFlags: 0

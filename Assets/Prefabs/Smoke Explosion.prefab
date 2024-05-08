@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 198603562046773920}
   - component: {fileID: 199185188785216948}
   m_Layer: 0
-  m_Name: Steam
+  m_Name: Smoke Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
