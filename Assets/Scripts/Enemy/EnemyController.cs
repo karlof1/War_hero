@@ -6,6 +6,9 @@ public class EnemyController : MonoBehaviour
 {
     public List<Transform> worldPoints;
     public List<Enemy> enemies;
+    
+    [HideInInspector]
+    public List<Enemy> spawnedEnemies;
 
     private void Start()
     {
@@ -16,7 +19,8 @@ public class EnemyController : MonoBehaviour
     {
         for (int i = 0; i < amount; i++)
         {
-            Instantiate(enemies[Random.Range(0, enemies.Count)], worldPoints[Random.Range(0, worldPoints.Count)].position, Quaternion.identity);
+            Enemy enemy = Instantiate(enemies[Random.Range(0, enemies.Count)], worldPoints[Random.Range(0, worldPoints.Count)].position, Quaternion.identity);
+            spawnedEnemies.Add(enemy);
         }
     }
 }

@@ -9750,8 +9750,9 @@ MonoBehaviour:
   grenadePrefab: {fileID: 579079936400519978, guid: d6caa0d9d295046458c07601d6d3754b, type: 3}
   throwPoint: {fileID: 5985705709603316608}
   throwForce: 15
-  explosionPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 4968481088977034009, guid: e8ef9c62a8ca1b14a90467e25ad7f1b3, type: 3}
   explosionOffset: {x: 0, y: 0, z: 0}
+  explosionEffectTime: 1.5
 --- !u!1 &7328748781622383842
 GameObject:
   m_ObjectHideFlags: 0
