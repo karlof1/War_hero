@@ -7388,6 +7388,7 @@ MonoBehaviour:
   - {fileID: 344540333}
   enemies:
   - {fileID: 6319628903312645199, guid: eb1849f9ef6a989439e3a29c7c811aed, type: 3}
+  spawnedEnemies: []
 --- !u!1 &1430184418
 GameObject:
   m_ObjectHideFlags: 0
@@ -9745,14 +9746,14 @@ MonoBehaviour:
   attackPosition: {x: 0, y: 0, z: 0}
   attackRotation: {x: 0, y: 0, z: 0}
   usingSound: {fileID: 0}
-  explosionRadius: 10
+  explosionRadius: 200
   explosionDelay: 3
   grenadePrefab: {fileID: 579079936400519978, guid: d6caa0d9d295046458c07601d6d3754b, type: 3}
   throwPoint: {fileID: 5985705709603316608}
   throwForce: 15
   explosionPrefab: {fileID: 4968481088977034009, guid: e8ef9c62a8ca1b14a90467e25ad7f1b3, type: 3}
   explosionOffset: {x: 0, y: 0, z: 0}
-  explosionEffectTime: 1.5
+  explosionEffectTime: 3.5
 --- !u!1 &7328748781622383842
 GameObject:
   m_ObjectHideFlags: 0
@@ -9857,13 +9858,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0194f7ae4c1224ca6cddc28682d58b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackDamage: 15
+  attackDamage: 10
   idlePosition: {x: 0, y: 0, z: 0}
   idleRotation: {x: 0, y: 0, z: 0}
   attackPosition: {x: 0, y: 0, z: 0}
   attackRotation: {x: 0, y: 0, z: 0}
   usingSound: {fileID: 0}
-  explosionRadius: 20
+  explosionRadius: 3
   explosionDelay: 2
   grenadePrefab: {fileID: 6289541432211561080, guid: b0d821c4aeeceb8488739cd14f70b6a0, type: 3}
   throwPoint: {fileID: 5006512736874647165}

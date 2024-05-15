@@ -30,10 +30,24 @@ public class FlashGrenade : ThrowableWeapon
         explosionEffect = Instantiate(explosionPrefab, grenade.transform.position + explosionOffset, Quaternion.identity);
 
         Invoke("DestroyExplosionEffect", explosionEffectTime);
+        BlindEnemy();
     }
 
     private void DestroyExplosionEffect()
     {
         Destroy(explosionEffect.gameObject);
+    }
+
+    public void BlindEnemy()
+    {
+        EnemyController enemyController = FindObjectOfType<EnemyController>();
+
+        foreach (var enemy in enemyController.spawnedEnemies)
+        {
+            if (Vector3.Distance(grenade.transform.position, enemy.transform.position) <= explosionRadius)
+            {
+                enemy.Blind(explosionEffectTime);
+            }
+        }
     }
 }

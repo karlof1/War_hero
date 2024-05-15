@@ -31,10 +31,34 @@ public class Molotov : ThrowableWeapon
         explosionEffect = Instantiate(explosionPrefab, grenade.transform.position + explosionOffset, Quaternion.identity);
 
         Invoke("DestroyExplosionEffect", explosionEffectTime);
+
+        for (int i = 0; i < explosionEffectTime; i++)
+        {
+            Invoke("DealDamage", i);
+        }
     }
 
     private void DestroyExplosionEffect()
     {
         Destroy(explosionEffect.gameObject);
+    }
+
+    public void DealDamage()
+    {
+        EnemyController enemyController = FindObjectOfType<EnemyController>();
+        PlayerHealthBar playerHealthBar = FindObjectOfType<PlayerHealthBar>();
+
+        foreach (var enemy in enemyController.spawnedEnemies)
+        {
+            if (Vector3.Distance(grenade.transform.position, enemy.transform.position) <= explosionRadius)
+            {
+                enemy.healthBar.SubtractHealth(attackDamage);
+            }
+        }
+
+        if (Vector3.Distance(grenade.transform.position, transform.position) <= explosionRadius)
+        {
+            playerHealthBar.SubtractHealth(attackDamage);
+        }
     }
 }

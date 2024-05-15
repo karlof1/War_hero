@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
 
     [HideInInspector] public EnemyHealthBar healthBar;
 
+    private bool isBlinded = false;
+
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -53,9 +55,12 @@ public class Enemy : MonoBehaviour
                     attackTimer = attackSpeed;
                     // dŸwiêk strza³u
 
-                    if(Random.Range(0,2) == 0)
+                    if(isBlinded == false)
                     {
-                        player.GetComponent<PlayerHealthBar>().SubtractHealth(20);
+                        if (Random.Range(0, 2) == 0)
+                        {
+                            player.GetComponent<PlayerHealthBar>().SubtractHealth(20);
+                        }
                     }
                 }
             }
@@ -94,6 +99,17 @@ public class Enemy : MonoBehaviour
         enemyBehaviour = EnemyBehaviour.Died;
         agent.enabled = false;
         animator.SetTrigger("Death");
+    }
+
+    public void Blind(float time)
+    {
+        isBlinded = true;
+        Invoke("Unblind", time);
+    }
+
+    public void Unblind()
+    {
+        isBlinded = false;
     }
 }
 
