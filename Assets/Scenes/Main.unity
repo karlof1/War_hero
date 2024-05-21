@@ -9814,6 +9814,7 @@ MonoBehaviour:
   throwForce: 15
   explosionPrefab: {fileID: 1735024089641582, guid: 2256e36e433b52a45943974155396ce7, type: 3}
   explosionOffset: {x: 0, y: 0, z: 0}
+  explosionEffectTime: 5
 --- !u!4 &8223965387726937648
 Transform:
   m_ObjectHideFlags: 0

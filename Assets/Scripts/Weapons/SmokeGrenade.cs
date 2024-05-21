@@ -6,6 +6,8 @@ using DG.Tweening;
 public class SmokeGrenade : ThrowableWeapon
 {
     private GameObject grenade;
+    public float explosionEffectTime;
+
     public override void Use()
     {
         base.Use();
@@ -25,5 +27,19 @@ public class SmokeGrenade : ThrowableWeapon
         base.Explode();
 
         GameObject explosionEffect = Instantiate(explosionPrefab, grenade.transform.position + explosionOffset, grenade.transform.rotation);
+        BlindEnemy();
+    }
+
+    public void BlindEnemy()
+    {
+        EnemyController enemyController = FindObjectOfType<EnemyController>();
+
+        foreach (var enemy in enemyController.spawnedEnemies)
+        {
+            if (Vector3.Distance(grenade.transform.position, enemy.transform.position) <= explosionRadius)
+            {
+                enemy.Blind(explosionEffectTime);
+            }
+        }
     }
 }
