@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyController : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        SpawnEnemy(100);
+        SpawnEnemy(20);
     }
 
     public void SpawnEnemy(int amount)
@@ -22,5 +23,18 @@ public class EnemyController : MonoBehaviour
             Enemy enemy = Instantiate(enemies[Random.Range(0, enemies.Count)], worldPoints[Random.Range(0, worldPoints.Count)].position, Quaternion.identity);
             spawnedEnemies.Add(enemy);
         }
+    }
+
+    public void CheckForWin()
+    {
+        if(spawnedEnemies.Count == 0)
+        {
+            LoadWinScreenScene();
+        }
+    }
+
+    public void LoadWinScreenScene()
+    {
+        SceneManager.LoadScene("Win screen");
     }
 }

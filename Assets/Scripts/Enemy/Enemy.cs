@@ -99,6 +99,9 @@ public class Enemy : MonoBehaviour
         enemyBehaviour = EnemyBehaviour.Died;
         agent.enabled = false;
         animator.SetTrigger("Death");
+
+        enemyController.spawnedEnemies.Remove(this);
+        enemyController.CheckForWin();
     }
 
     public void Blind(float time)
