@@ -17,7 +17,7 @@ public class SmokeGrenade : ThrowableWeapon
         rb.AddForce(throwPoint.forward * throwForce, ForceMode.VelocityChange);
         rb.useGravity = true;
 
-        WeaponController.fragGrenadeAvailable = false;
+        WeaponController.smokeGrenadeAvailable = false;
 
         Invoke("Explode", explosionDelay);
     }

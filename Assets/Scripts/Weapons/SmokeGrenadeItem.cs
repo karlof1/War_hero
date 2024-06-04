@@ -8,9 +8,9 @@ public class SmokeGrenadeItem : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (WeaponController.fragGrenadeAvailable == false)
+            if (WeaponController.smokeGrenadeAvailable == false)
             {
-                WeaponController.fragGrenadeAvailable = true;
+                WeaponController.smokeGrenadeAvailable = true;
                 Destroy(gameObject);
             }
         }
